@@ -1,4 +1,4 @@
-# Gnarly Graphs
+# Gaming Graphs: Graph Algorithms with Tabletop/Board Games
 
 **CISC320 Spring 2023 Lesson 19 - Graph Applications**
 
@@ -8,7 +8,12 @@ Group Members:
 * Third member (email)
 * Fourth member (email)
 
-Description of project
+The tradition of board games dates back millennia and has been enjoyed by countless generations.
+On the other hand, modern graph theory has only developed over the last couple of centuries.
+However, as we will demonstrate, the two are more connected than you think; we can use graph
+theory to look at and solve our favorite timeless games in brand-new ways. In many ways,
+the problems mirror the topic: Like a board game connecting the young and old generations, we
+shall connect this ancient pass time with modern theory.
 
 ## Installation Code
 
@@ -22,7 +27,7 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# First Problem Title
+# Tricky Terrain: Shortest Path to the Goal!
 
 **Informal Description**: 
 
