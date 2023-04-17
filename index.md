@@ -38,8 +38,8 @@ Each space has one of three possible terrains with an associated moving value (M
 Your objective is to move from the starting spot to the end spot whilst traversing
 the least treacherous terrain, or, in other words, with the smallest MV.
 You can assume the position of each spot is given a random terrain at the start of the game, so no
-planning out your route beforehand! Thankfully, we can use Dijkstra's Algorithm to find the shortest
-path from start to finish whilst minimizing our MV! Neat!
+planning out your route beforehand! You can also not traverse the board diagonally. Thankfully, we can use 
+Dijkstra's Algorithm to find the shortest path from start to finish while minimizing our MV! Neat!
 
 > **Formal Description**:
 >  * Input:
