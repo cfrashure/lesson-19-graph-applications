@@ -1,9 +1,9 @@
-# Title of Your Project
+# Gnarly Graphs
 
-**CISC320 Spring 2023 Lesson 14 - Graph Applications**
+**CISC320 Spring 2023 Lesson 19 - Graph Applications**
 
 Group Members:
-* First member (email)
+* Colby Frashure (cfrashur@udel.edu)
 * Second member (email)
 * Third member (email)
 * Fourth member (email)
