@@ -29,13 +29,23 @@ import networkx as nx
 
 # Tricky Terrain: Shortest Path to the Goal!
 
-**Informal Description**: 
+**Informal Description**:  
+Imagine you have an 8x8 board, with a game piece you must move from one spot of the board to another.
+Each space has one of three possible terrains with an associated moving value (MV):
+1. Land: Cost 1MV. There are 32 land terrains that can be assigned.
+2. Hill: Cost 2MV. There are 16 hill terrains that can be assigned.
+3. Mountain: Cost 3MV. There are 16 mountain terrains that can be assigned.
+Your objective is to move from the starting spot to the end spot whilst traversing
+the least treacherous terrain, or, in other words, with the smallest MV.
+You can assume the position of each spot is given a random terrain at the start of the game, so no
+planning out your route beforehand! Thankfully, we can use Dijkstra's Algorithm to find the shortest
+path from start to finish whilst minimizing our MV! Neat!
 
 > **Formal Description**:
 >  * Input:
 >  * Output:
 
-**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+**Graph Problem/Algorithm**: Single Source Shortest Path (Dijkstra's Algorithm)
 
 
 **Setup code**:
