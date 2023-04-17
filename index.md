@@ -35,6 +35,7 @@ Each space has one of three possible terrains with an associated moving value (M
 1. Land: Cost 1MV. There are 32 land terrains that can be assigned.
 2. Hill: Cost 2MV. There are 16 hill terrains that can be assigned.
 3. Mountain: Cost 3MV. There are 16 mountain terrains that can be assigned.
+
 Your objective is to move from the starting spot to the end spot whilst traversing
 the least treacherous terrain, or, in other words, with the smallest MV.
 You can assume the position of each spot is given a random terrain at the start of the game, so no
@@ -42,8 +43,10 @@ planning out your route beforehand! You can also not traverse the board diagonal
 Dijkstra's Algorithm to find the shortest path from start to finish while minimizing our MV! Neat!
 
 > **Formal Description**:
->  * Input:
->  * Output:
+>  * Input: A weighted, undirected graph *G* = (*V*, *E*, *w*), *s*, and *e*, where *V* is the set of vertices, 
+*E* is the set of edges, *w* is the weight function that assigns positive integer to each edge, 
+*s* being the starting vertex in *V*, and *e* being the end vertex in *V*.
+>  * Output: A set of verticies in *V* representing the shortest path from *s* to *e*.
 
 **Graph Problem/Algorithm**: Single Source Shortest Path (Dijkstra's Algorithm)
 
