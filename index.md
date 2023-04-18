@@ -75,5 +75,28 @@ While less of a board game and more of a paper puzzle, Sudoku is undenibly an ef
 Initially, some of the spaces on the board are filled in with single-digit numerical values. Your goal is to fill each of the remaining spaces on the board with a value 1-9 without repeats in any row, column, or region. For example, if there is a 5 in the most top left corner, we cannot have any other 5's in the first row, first column, or the top left most 3x3 region.
 It's likely that your grandparents solve the Sudoku puzzles in the daily newspaper as a form of self assessment of intelligence. Likewise, if you wish to be seen as a prodigy in their eyes you could attempt to solve a Sudoku puzzle in an impossibly fast amount of time. Luckily, we can use a depth first search (DFS) to do just that!
 
+> **Formal Description:**
+> * Input: 
+> * Output:
+
+**Graph Problem/Algorithm:** Depth First Search (DFS)
+
+**Setup Code:**
+
+```python
+```
+
+**Visualization:**
+
+**Solution Code:**
+
+```python
+```
+
+**Output**
+```
+```
+
+**Interpretation of Results:**
 
 
