@@ -54,16 +54,7 @@ Dijkstra's Algorithm to find the shortest path from start to finish while minimi
 **Setup code**:
 
 ```python
-```
-
-**Visualization**:
-
-![Dijkstra Graph](./dijkstra_graph.png)
-
-**Solution code:**
-
-```python
-G = nx.Graph()
+G = nx.MultiGraph()
 elistrow = [(1, 2, 1), (2, 3, 1), (3, 4, 3), (4, 5, 3), (5, 6, 2), (6, 7, 1), (7, 8, 1),
             (9, 10, 3), (10, 11, 2), (11, 12, 3), (12, 13, 1), (13, 14, 1),(14, 15, 2), (15, 16, 1),
             (17, 18, 1), (18, 19, 1), (19, 20, 3), (20, 21, 3), (21, 22, 2), (22, 23, 1), (23, 24, 1)
@@ -84,9 +75,21 @@ G.add_weighted_edges_from(elistrow)
 G.add_weighted_edges_from(elistcol)
 ```
 
+**Visualization**:
+
+![Dijkstra Graph](./dijkstra_graph.png)
+
+**Solution code:**
+
+```python
+shortest_path = nx.dijkstra_path(G, 1, 64)
+print(shortest_path)
+```
+
 **Output**
 
 ```
+[1, 2, 10, 11, 12, 13, 14, 15, 23, 31, 39, 47, 55, 63, 64]
 ```
 
 **Interpretation of Results**:
