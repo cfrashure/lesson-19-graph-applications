@@ -93,4 +93,7 @@ print(shortest_path)
 ```
 
 **Interpretation of Results**:
+Based on the output of our Dijkstra's algorithm, we would need to take the following path for this particular board:
+>1 to 2 to 10 to 11 to 12 to 13 to 14 to 15 to 23 to 31 to 39 to 47 to 55 to 63 to 64
 
+This path will result in the minimum MV being used! Hooray for Dijkstra! (Oh, and if you're curious, you'll have an MV of 18.)
