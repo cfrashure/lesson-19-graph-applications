@@ -88,7 +88,7 @@ It's likely that your grandparents solve the Sudoku puzzles in the daily newspap
 ```
 
 > **Formal Description:**
-> * Input: 
+> * Input: A 4x4 array with values assigned to some 
 > * Output:
 
 **Graph Problem/Algorithm:** Depth First Search (DFS)
