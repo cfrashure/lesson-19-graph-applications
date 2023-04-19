@@ -57,7 +57,9 @@ import networkx as nx
 # Amazing Maze: Find Your Way Out
 
 **Informal Description:**
-Mazes have been a challenging source of entertainment for people of all ages for centuries. From the childhood joy of solving mazes in puzzle books to haunted houses and corn mazes, we all have some memory associated with mazes. Some people however, do not like mazes. For these people we have an algorithm that works like magic for the next time you wake up in a haunted house or the middle of a corn maze assuming you were left with a map.
+Mazes have been a challenging source of entertainment for people of all ages for centuries. From the childhood joy of solving mazes in puzzle books to haunted houses and corn mazes, we all have some memory associated with mazes. Here we have a buzz-worthy maze from the back of a box of Cheerios. Our objective is to find a way from the outside to the center of the honey spilled by the menacing bee.
+
+![Image of original maze](./maze.png)
 
 >**Formal Description:**
 > * Input: An unweighted, undirected graph G = (V, E), s, where V is the set of verticies (maze junctions), E is the set of edges (paths connecting junctions), and s being the starting vertex in V.
@@ -68,10 +70,11 @@ Mazes have been a challenging source of entertainment for people of all ages for
 **Setup Code:**
 
 ```python
+
 ```
 
 **Visualization:**
-![Image graph](./dfs.png)
+![DFS Graph of Maze](./DFS-maze-graph.png)
 
 **Solution Code:**
 
