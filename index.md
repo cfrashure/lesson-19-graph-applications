@@ -74,7 +74,7 @@ Mazes have been a challenging source of entertainment for people of all ages for
 import networkx as nx
 
 G = nx.Graph()
-G.add_edges_from([(0, 1), (0,2), (2, 3), (2, 10), (3, 4), (3, 5), (5, 6), (5, 7), (7, 8), (7, 9), (10, 11), (11, 18), (10, 12), (12, 13), (12, 14), (13, 11), (14, 15), (19, 17), (19, 8), (11, 24), (24, 25), (24, 26), (13, 18), (18, 22), (18, 19), (19, 20), (19, 21), (26, 27)])
+G.add_edges_from([('start', 'a'), ('start', 'b'), ('b', 'c'), ('b', 'j'), ('c', 'd'), ('c', 'e'), ('e', 'f'), ('e', 'g'), ('g', 'h'), ('g', 'i'), ('j', 'k'), ('k', 'r'), ('j', 'l'), ('l', 'm'), ('l', 'n'), ('m', 'k'), ('n', 'o'), ('n', 'q'), ('n', 'h'), ('k', 'x'), ('x', 'y'), ('x', 'z'), ('m', 's'), ('s', 'w'), ('s', 't'), ('t', 'u'), ('t', 'v'), ('z', 'end')])
 ```
 
 **Visualization:**
@@ -91,9 +91,9 @@ print(dfs)
 **Output**
 
 ```
-[0, 1, 2, 3, 4, 5, 6, 7, 8, 19, 17, 18, 11, 10, 12, 13, 14, 15, 24, 25, 26, 27, 22, 20, 21, 9]
+['start', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'n', 'l', 'j', 'k', 'r', 'm', 's', 'w', 't', 'u', 'v', 'x', 'y', 'z', 'end', 'o', 'q', 'i']
 ```
 
 **Interpretation of Results:**
-
+This list shows the order that the DFS algorithim took as it searched the paths in the in the maze starting at the 'start' vertex. Since this is a pre-order search, it always tries the leftmost vertex first before backtracking and trying the other vertex. From this output we see that starting at the 'start' vertex it attempted to go the route of 'a' only to find that it was a dead end so it backtracked and moved to the 'b' vertex which branches from 'start'. It searches the verticies accessible down a path until it reaches a dead end like it did with 'i' and backtracks to the previous split that it didn't search.
 
