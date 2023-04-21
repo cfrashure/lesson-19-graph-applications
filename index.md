@@ -135,9 +135,10 @@ G = nx.Graph()
 G.add_edges_from([('start', 'a'), ('a', 'b'), ('a', 'c'), ('a', 'd'), ('d', 'e'), ('d', 'f'), ('f', 'g'), ('f', '6'), ('g', 'h'), ('g', 'i'), ('f', 'j'), ('j', 'z'), ('j', 'v'), ('v', 'x'), ('v', 'w'), ('w', 'y'), ('w', 'z'), ('w', 'j'), ('v', 'u'), ('u', 't'), ('u', '3'), ('u', '1'), ('1', '2'), ('1', '4'), ('4', '5'), ('4', 'c'), ('b', 'k'), ('k', 'l'), ('k', 'm'), ('m', '0'), ('m', 'n'), ('n', 'o'), ('n', 'p'), ('n', 't'), ('0', 'q'), ('q', 't'), ('q', 'r'), ('q', 's'), ('z', 'end')])
 ```
 
-**Visualization:**
+**Cheerios Visualization:**
 ![DFS Graph of Cheerios](./DFS-maze-graph.png)
 
+**Harder MAze Visualization:**
 ![DFS Graph of Harder Maze](./DFS-maze-graph-2.png)
 
 **Solution Code:**
