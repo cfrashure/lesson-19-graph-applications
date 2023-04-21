@@ -104,17 +104,22 @@ This path will result in the minimum MV being used! Hooray for Dijkstra! (Oh, an
 **Informal Description:**
 Mazes have been a challenging source of entertainment for people of all ages for centuries. From the childhood joy of solving mazes in puzzle books to haunted houses and corn mazes, we all have some memory associated with mazes. Here we have a buzz-worthy maze from the back of a box of Cheerios. Our objective is to find a way from the outside to the center of the honey spilled by the menacing bee.
 
-![Image of original maze](./maze.png)
+![Image of Cheerios maze](./maze.png)
 *I've taken the liberty of labeling each vertex with a letter*
+
+If bees and honey aren't your style and you would like a bit more of a challenge we have also prepared a more standard looking maze that is a bit more of a challenge to solve. This maze has more than 1 solution giving it a slightly denser graph making networkx's work more fun.
+
+![Image of complex maze](./maze2.png)
 
 >**Formal Description:**
 > * Input: An unweighted, undirected graph G = (V, E), s, where V is the set of verticies (maze junctions), E is the set of edges (paths connecting junctions), and s being the starting vertex in V.
-> * Output: A set of verticies in V representing the path out of the maze
+> * Output: A set of verticies in V representing the search through the maze
 
 **Graph Problem/Algorithm:** DFS
 
 **Setup Code:**
 
+*Cheerios Maze:*
 ```python
 import networkx as nx
 
@@ -122,8 +127,18 @@ G = nx.Graph()
 G.add_edges_from([('start', 'a'), ('start', 'b'), ('b', 'c'), ('b', 'j'), ('c', 'd'), ('c', 'e'), ('e', 'f'), ('e', 'g'), ('g', 'h'), ('g', 'i'), ('j', 'k'), ('k', 'r'), ('j', 'l'), ('l', 'm'), ('l', 'n'), ('m', 'k'), ('n', 'o'), ('n', 'q'), ('n', 'h'), ('k', 'x'), ('x', 'y'), ('x', 'z'), ('m', 's'), ('s', 'w'), ('s', 't'), ('t', 'u'), ('t', 'v'), ('z', 'end')])
 ```
 
+*Harder Maze:*
+```python
+import networkx as nx
+
+G = nx.Graph()
+G.add_edges_from([('start', 'a'), ('a', 'b'), ('a', 'c'), ('a', 'd'), ('d', 'e'), ('d', 'f'), ('f', 'g'), ('f', '6'), ('g', 'h'), ('g', 'i'), ('f', 'j'), ('j', 'z'), ('j', 'v'), ('v', 'x'), ('v', 'w'), ('w', 'y'), ('w', 'z'), ('w', 'j'), ('v', 'u'), ('u', 't'), ('u', '3'), ('u', '1'), ('1', '2'), ('1', '4'), ('4', '5'), ('4', 'c'), ('b', 'k'), ('k', 'l'), ('k', 'm'), ('m', '0'), ('m', 'n'), ('n', 'o'), ('n', 'p'), ('n', 't'), ('0', 'q'), ('q', 't'), ('q', 'r'), ('q', 's'), ('z', 'end')])
+```
+
 **Visualization:**
-![DFS Graph of Maze](./DFS-maze-graph.png)
+![DFS Graph of Cheerios](./DFS-maze-graph.png)
+
+![DFS Graph of Harder Maze](./DFS-maze-graph-2.png)
 
 **Solution Code:**
 
@@ -135,10 +150,16 @@ print(dfs)
 
 **Output**
 
+*Cheerios Maze:*
 ```
 ['start', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'n', 'l', 'j', 'k', 'r', 'm', 's', 'w', 't', 'u', 'v', 'x', 'y', 'z', 'end', 'o', 'q', 'i']
 ```
 
+*Harder Maze:*
+```
+['start', 'a', 'b', 'k', 'l', 'm', '0', 'q', 't', 'u', 'v', 'j', 'f', 'd', 'e', 'g', 'h', 'i', '6', 'z', 'w', 'y', 'end', 'x', '3', '1', '2', '4', '5', 'c', 'n', 'o', 'p', 'r', 's']
+```
+
 **Interpretation of Results:**
-This list shows the order that the DFS algorithim took as it searched the paths in the in the maze starting at the 'start' vertex. Since this is a pre-order search, it always tries the leftmost vertex first before backtracking and trying the other vertex. From this output we see that starting at the 'start' vertex it attempted to go the route of 'a' only to find that it was a dead end so it backtracked and moved to the 'b' vertex which branches from 'start'. It searches the verticies accessible down a path until it reaches a dead end like it did with 'i' and backtracks to the previous split that it didn't search.
+These lists show the order that the DFS algorithim took as it searched the the mazes starting at the 'start' vertex. Since this is a pre-order search, it always tries the leftmost vertex first before backtracking and trying the other vertex. From the Cheerios output we see that starting at the 'start' vertex it attempted to go the route of 'a' only to find that it was a dead end so it backtracked and moved to the 'b' vertex which branches from 'start'. It searches the verticies accessible down a path until it reaches a dead end like it did with 'i' and backtracks to the previous split that it didn't search.
 
