@@ -5,7 +5,7 @@
 Group Members:
 * Colby Frashure (cfrashur@udel.edu)
 * Andrew Roberts (andrewzr@udel.edu)
-* Third member (email)
+* Robert Oratorio (oratorio@udel.edu)
 * Fourth member (email)
 
 The tradition of board games dates back millennia and has been enjoyed by countless generations.
@@ -164,3 +164,79 @@ print(dfs)
 **Interpretation of Results:**
 These lists show the order that the DFS algorithim took as it searched the the mazes starting at the 'start' vertex. Since this is a pre-order search, it always tries the leftmost vertex first before backtracking and trying the other vertex. From the Cheerios output we see that starting at the 'start' vertex it attempted to go the route of 'a' only to find that it was a dead end so it backtracked and moved to the 'b' vertex which branches from 'start'. It searches the verticies accessible down a path until it reaches a dead end like it did with 'i' and backtracks to the previous split that it didn't search.
 
+# Branches of Power - Skill Tree Traversal
+
+**Informal Description**:  
+Popular RPG game Branches of Power has a skill tree that players must use when they level up. Players must choose between classes of attack, magic, and defense & range. As they level up, they progress through the classes and choose new skills to unlock. A new player will want to quickly gain xp so they can max out their skill tree and learn all the possible abilities.
+
+The objective is to unlock all skills in as little steps as possible. This way, a player can maximize the speed at which they reach the highest level.
+
+DFS can be used to find the shortest path to unlock all skills in the unweighted skill tree.
+
+> **Formal Description**:
+>  * Input: A weighted, undirected graph *G* = (*V*, *E*), and *s*, where *V* is the set of vertices, *E* is the set of edges, and *s* is the starting vertex in *V*.
+>  * Output: A set of edges in *E* representing the shortest path to visit every node starting from *s*. Also the number of edges in this shortest path.
+
+**Graph Problem/Algorithm:** BFS
+
+**Setup Code:**
+
+*Cheerios Maze:*
+```python
+import networkx as nx
+
+g = nx.Graph()
+g.add_edge("Starting_Skill", "First_Powerup")
+g.add_edge("First_Powerup", "Defense_Range_Starter")
+g.add_edge("First_Powerup", "Magic_Starter")
+g.add_edge("First_Powerup", "Attack_Starter")
+g.add_edge("Defense_Range_Starter", "Bow_Arrow")
+g.add_edge("Defense_Range_Starter", "Iron_Shield")
+g.add_edge("Bow_Arrow", "Crossbow")
+g.add_edge("Bow_Arrow", "Elemental_Arrows")
+g.add_edge("Crossbow", "Elemental_Arrows")
+g.add_edge("Magic_Starter", "Magic_Wand")
+g.add_edge("Magic_Starter", "Learn_Spells")
+g.add_edge("Magic_Wand", "Ice_Cast")
+g.add_edge("Magic_Wand", "Fire_Cast")
+g.add_edge("Learn_Spells", "Ice_Cast")
+g.add_edge("Learn_Spells", "Fire_Cast")
+g.add_edge("Learn_Spells", "Magic_Shield")
+g.add_edge("Iron_Shield", "Magic_Shield")
+g.add_edge("Ice_Cast", "Elemental_Arrows")
+g.add_edge("Fire_Cast", "Elemental_Arrows")
+g.add_edge("Fire_Cast", "Flaming_Sword")
+g.add_edge("Attack_Starter", "Iron_Shield")
+g.add_edge("Attack_Starter", "Iron_Sword")
+g.add_edge("Attack_Starter", "Light_Armor")
+g.add_edge("Iron_Shield", "Light_Armor")
+g.add_edge("Light_Armor", "Assassin_Dagger")
+g.add_edge("Attack_Starter", "Assassin_Dagger")
+g.add_edge("Assassin_Dagger", "Dual_Weild")
+g.add_edge("Iron_Sword", "Broadsword")
+g.add_edge("Iron_Sword", "Greatsword")
+g.add_edge("Iron_Sword", "Dual_Weild")
+g.add_edge("Broadsword", "Greatsword")
+g.add_edge("Broadsword", "Flaming_Sword")
+```
+
+**Skill Tree Visualization:**
+![BFS Graph of Skill Tree](./BFS-skill-tree.png)
+
+**Solution Code:**
+
+```python
+N = nx.bfs_edges(g, 'Starting_Skill')
+bfs = list(N)
+print(len(bfs))
+print(bfs)
+```
+
+**Output:**
+```
+20
+[('Starting_Skill', 'First_Powerup'), ('First_Powerup', 'Defense_Range_Starter'), ('First_Powerup', 'Magic_Starter'), ('First_Powerup', 'Attack_Starter'), ('Defense_Range_Starter', 'Bow_Arrow'), ('Defense_Range_Starter', 'Iron_Shield'), ('Magic_Starter', 'Magic_Wand'), ('Magic_Starter', 'Learn_Spells'), ('Attack_Starter', 'Iron_Sword'), ('Attack_Starter', 'Light_Armor'), ('Attack_Starter', 'Assassin_Dagger'), ('Bow_Arrow', 'Crossbow'), ('Bow_Arrow', 'Elemental_Arrows'), ('Iron_Shield', 'Magic_Shield'), ('Magic_Wand', 'Ice_Cast'), ('Magic_Wand', 'Fire_Cast'), ('Iron_Sword', 'Broadsword'), ('Iron_Sword', 'Greatsword'), ('Iron_Sword', 'Dual_Weild'), ('Fire_Cast', 'Flaming_Sword')]
+```
+
+**Interpretation of Results:**
+The list shows the order that the BFS algorithim took as it searched through the skill tree starting at the 'Starting_Skill' vertex. The number gives the number of edges in the skill tree, which is the amount of times a player needs to level up in order to max out their skill set. The list gives the order that a player needs to choose their skills in order to reach their max skills as quickly as possible. 
