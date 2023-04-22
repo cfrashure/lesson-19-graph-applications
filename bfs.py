@@ -37,4 +37,5 @@ g.add_edge("Broadsword", "Flaming_Sword")
 if __name__ == "__main__":
     N = nx.bfs_edges(g, 'Starting_Skill')
     bfs = list(N)
+    print(len(bfs))
     print(bfs)
