@@ -5,7 +5,7 @@
 Group Members:
 * Colby Frashure (cfrashur@udel.edu)
 * Andrew Roberts (andrewzr@udel.edu)
-* Third member (email)
+* Robert Oratorio (oratorio@udel.edu)
 * Fourth member (email)
 
 The tradition of board games dates back millennia and has been enjoyed by countless generations.
@@ -164,3 +164,11 @@ print(dfs)
 **Interpretation of Results:**
 These lists show the order that the DFS algorithim took as it searched the the mazes starting at the 'start' vertex. Since this is a pre-order search, it always tries the leftmost vertex first before backtracking and trying the other vertex. From the Cheerios output we see that starting at the 'start' vertex it attempted to go the route of 'a' only to find that it was a dead end so it backtracked and moved to the 'b' vertex which branches from 'start'. It searches the verticies accessible down a path until it reaches a dead end like it did with 'i' and backtracks to the previous split that it didn't search.
 
+# Branches of Power - Skill Tree Traversal
+
+**Informal Description**:  
+Popular RPG game Branches of Power has a skill tree that players must use when they level up. Players must choose between classes of attack, magic, and defense & range. As they level up, they progress through the classes and choose new skills to unlock. A new player will want to quickly gain xp so they can max out their skill tree and learn all the possible abilities.
+
+The objective is to unlock all skills in as little steps as possible. This way, a player can maximize the speed at which they reach the highest level.
+
+DFS can be used to find the shortest path to unlock all skills in the unweighted skill tree.
