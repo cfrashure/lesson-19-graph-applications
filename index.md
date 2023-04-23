@@ -6,7 +6,7 @@ Group Members:
 * Colby Frashure (cfrashur@udel.edu)
 * Andrew Roberts (andrewzr@udel.edu)
 * Robert Oratorio (oratorio@udel.edu)
-* Fourth member (email)
+* Brendan Lewis (belewis@udel.edu)
 
 The tradition of board games dates back millennia and has been enjoyed by countless generations.
 On the other hand, modern graph theory has only developed over the last couple of centuries.
@@ -239,4 +239,68 @@ print(bfs)
 ```
 
 **Interpretation of Results:**
-The list shows the order that the BFS algorithim took as it searched through the skill tree starting at the 'Starting_Skill' vertex. The number gives the number of edges in the skill tree, which is the amount of times a player needs to level up in order to max out their skill set. The list gives the order that a player needs to choose their skills in order to reach their max skills as quickly as possible. 
+The list shows the order that the BFS algorithim took as it searched through the skill tree starting at the 'Starting_Skill' vertex. The number gives the number of edges in the skill tree, which is the amount of times a player needs to level up in order to max out their skill set. The list gives the order that a player needs to choose their skills in order to reach their max skills as quickly as possible.
+
+
+
+
+
+
+
+
+# Cities: Skylines - Optimizing Network Cost
+
+**Informal Description**:
+
+City-building games such as Cities: Skylines are detailed simulations of real-world cities, involving complex networks of pipes, electric wires, bus stops, and many others.
+
+A minimum spanning tree algorithm such as Prim's algorithm can be used to optimize these networks to decrease cost and increase efficiency. For the sake of making the game more fun, these networks are treated as undirected, and for the sake of making my life easier, there is one water pump supplying water to the network that will serve as the tree root.
+
+> **Formal Description**:
+>  * Input: A weighted, undirected graph *G* = (*V*, *E*), and *s*, where *V* is the set of vertices, *E* is the set of edges, and *s* is the starting vertex in *V*.
+>  * Output: An MST representing the shortest path to visit every node starting from *s*.
+
+**Graph Problem/Algorithm:** Prim's MST
+
+**Setup Code:**
+
+*Water Distribution:*
+```python
+g = nx.MultiGraph()
+elistrow = [(1, 2, 1), (2, 3, 1), (3, 4, 3), (4, 5, 3), (5, 6, 2), (6, 7, 1), (7, 8, 1),
+            (9, 10, 3), (10, 11, 2), (11, 12, 3), (12, 13, 1), (13, 14, 1), (14, 15, 2), (15, 16, 1),
+            (17, 18, 1), (18, 19, 1), (19, 20, 3), (20, 21, 3), (21, 22, 2), (22, 23, 1), (23, 24, 1),
+            (25, 26, 3), (26, 27, 2), (27, 28, 3), (28, 29, 1), (29, 30, 1), (30, 31, 2), (31, 32, 1),
+            (33, 34, 1), (34, 35, 1), (35, 36, 3), (36, 37, 3), (37, 38, 2), (38, 39, 1), (39, 40, 1),
+            (41, 42, 3), (42, 43, 2), (43, 44, 3), (44, 45, 1), (45, 46, 1), (46, 47, 2), (47, 48, 1),
+            (49, 50, 1), (50, 51, 1), (51, 52, 3), (52, 53, 3), (53, 54, 2), (54, 55, 1), (55, 56, 1),
+            (57, 58, 3), (58, 59, 2), (59, 60, 3), (60, 61, 1), (61, 62, 1), (62, 63, 2), (63, 64, 1)]
+elistcol = [(1, 9, 1), (9, 17, 3), (17, 25, 1), (25, 33, 3), (33, 41, 1), (41, 49, 3), (49, 57, 1),
+            (2, 10, 1), (10, 18, 2), (18, 26, 1), (26, 34, 2), (34, 42, 1), (42, 50, 2), (50, 58, 1),
+            (3, 11, 3), (11, 19, 3), (19, 27, 3), (27, 35, 3), (35, 43, 3), (43, 51, 3), (51, 59, 3),
+            (4, 12, 3), (12, 20, 1), (20, 28, 3), (28, 36, 1), (36, 44, 3), (44, 52, 1), (52, 60, 3),
+            (5, 13, 2), (13, 21, 1), (21, 29, 2), (29, 37, 1), (37, 45, 2), (45, 53, 1), (53, 61, 2),
+            (6, 14, 1), (14, 22, 2), (22, 30, 1), (30, 38, 2), (38, 46, 1), (46, 54, 2), (54, 62, 1),
+            (7, 15, 1), (15, 23, 1), (23, 31, 1), (31, 39, 1), (39, 47, 1), (47, 55, 1), (55, 63, 1),
+            (8, 16, 2), (16, 24, 1), (24, 32, 2), (32, 40, 1), (40, 48, 2), (48, 56, 1), (56, 64, 2)]
+g.add_weighted_edges_from(elistrow)
+g.add_weighted_edges_from(elistcol)
+```
+
+**Graph Visualization:**
+
+![MST Graph of Water Network](./MST-graph.png)
+
+**Solution Code:**
+
+```python
+print([edge for edge in prims.edges])
+```
+
+**Output:**
+```
+[(1, 2, 0), (1, 9, 0), (2, 3, 0), (2, 10, 0), (3, 4, 0), (5, 13, 0), (6, 14, 0), (6, 7, 0), (7, 8, 0), (7, 15, 0), (10, 11, 0), (10, 18, 0), (11, 12, 0), (12, 13, 0), (12, 20, 0), (13, 14, 0), (13, 21, 0), (15, 16, 0), (15, 23, 0), (16, 24, 0), (17, 18, 0), (17, 25, 0), (18, 19, 0), (18, 26, 0), (22, 23, 0), (22, 30, 0), (23, 31, 0), (26, 27, 0), (26, 34, 0), (28, 29, 0), (28, 36, 0), (29, 30, 0), (29, 37, 0), (31, 32, 0), (31, 39, 0), (32, 40, 0), (33, 34, 0), (33, 41, 0), (34, 35, 0), (34, 42, 0), (38, 39, 0), (38, 46, 0), (39, 47, 0), (42, 43, 0), (42, 50, 0), (44, 45, 0), (44, 52, 0), (45, 46, 0), (45, 53, 0), (47, 48, 0), (47, 55, 0), (48, 56, 0), (49, 50, 0), (49, 57, 0), (50, 51, 0), (50, 58, 0), (54, 55, 0), (54, 62, 0), (55, 63, 0), (58, 59, 0), (60, 61, 0), (61, 62, 0), (63, 64, 0)]
+```
+
+**Interpretation of Results:**
+The graph shows the connections that must be made to the water source to minimize distance to the water source, which maximizes water pressure and minimizes the length of pipes that must be dug between nodes.
